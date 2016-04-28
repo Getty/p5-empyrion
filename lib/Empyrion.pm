@@ -1,5 +1,5 @@
 package Empyrion;
-# ABSTRACT: TODO
+# ABSTRACT: Modules around Empyrion - Galactical Survial
 
 use strict;
 use warnings;
