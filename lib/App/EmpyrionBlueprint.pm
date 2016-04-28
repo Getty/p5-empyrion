@@ -58,7 +58,6 @@ sub run {
     my $path = $bp->save($self->to);
     print "Saved new blueprint to: ".$path->absolute->stringify."\n";
   } else {
-    print "\n";
     print "Type:           ".$bp->type_name."\n";
     print "Dimensions:     ".$bp->width."/".$bp->height."/".$bp->depth." (w/h/d)\n";
     print "Remove Terrain: ".($bp->remove_terrain ? 'Yes' : 'No')."\n";
