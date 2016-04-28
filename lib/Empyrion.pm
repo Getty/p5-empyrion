@@ -1,5 +1,7 @@
+package Empyrion;
+# ABSTRACT: TODO
+
 use strict;
 use warnings;
-package Empyrion;
 
 1;

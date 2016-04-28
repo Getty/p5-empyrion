@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+# PODNAME: empyrion_blueprint
+# ABSTRACT: Tool for analyzing and modifing Empyrion Blueprint files
+
+use strict;
+use warnings;
+use App::EmpyrionBlueprint;
+use Carp qw( croak );
+
+exit App::EmpyrionBlueprint->new_with_options()->run;
