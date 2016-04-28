@@ -3,7 +3,6 @@ package App::EmpyrionBlueprint;
 use Empyrion::Base;
 use MooX::Options;
 use Empyrion::Blueprint;
-use DDP;
 
 option 'spawn_group' => (
   is => 'ro',
@@ -54,11 +53,21 @@ sub run {
   $bp->set_spawn_group($self->spawn_group) if $self->has_spawn_group;
   $bp->set_z_position($self->z_position) if $self->has_z_position;
   $bp->set_remove_terrain($self->remove_terrain) if $self->has_remove_terrain;
+  print "\n";
   if ($self->has_to) {
-    $bp->save($self->to);
+    my $path = $bp->save($self->to);
+    print "Saved new blueprint to: ".$path->absolute->stringify."\n";
   } else {
-    p(%{$bp->data});
+    print "\n";
+    print "Type:           ".$bp->type_name."\n";
+    print "Dimensions:     ".$bp->width."/".$bp->height."/".$bp->depth." (w/h/d)\n";
+    print "Remove Terrain: ".($bp->remove_terrain ? 'Yes' : 'No')."\n";
+    if ($bp->spawn_group_length) {
+      print "Spawn Group:    ".$bp->spawn_group."\n";
+    }
+    print "Z-position:     ".$bp->z_position."\n";
   }
+  print "\n";
   return 0;
 }
 
